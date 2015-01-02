@@ -39,7 +39,7 @@
 <h2>
 <a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h2>
 
-<p><ul style="text-decroation:none;listStyle:none;">
+<p><ul style="text-decroation:none;list-style:none;">
     <li>
         v1.00<ul>
             <li>Initial release</li>
