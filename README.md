@@ -50,6 +50,6 @@
 <h2>License</h2>
 
 <h4>This software is licensed under the GNU General Public License.</h4>
-          <p class="repo-owner"><a href="https://github.com/lucasantarella/Omega">Omega</a> is maintained by <a href="https://github.com/lucasantarella">lucasantarella</a>.</p>
+<a href="https://github.com/lucasantarella/Omega">Omega</a> is maintained by <a href="https://github.com/lucasantarella">lucasantarella</a>.</p>
 
 </body></html>
