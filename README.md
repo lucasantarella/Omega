@@ -39,8 +39,13 @@
 <h2>
 <a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h2>
 
-<p>-v1.00
-  -Initial release</p>
+<p><ul style="text-decroation:none;listStyle:none;">
+    <li>
+        v1.00<ul>
+            <li>Initial release</li>
+        </ul>
+    </li>
+</ul></p>
 
 <h2>
 <a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h2>
