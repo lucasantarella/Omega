@@ -1,8 +1,8 @@
-  <body>
+<body>
     <header>
       <div class="inner">
         <h1>Omega</h1>
-        <h2>Oratory Prep Omega Application</h2>
+        <h3>Oratory Prep Omega Application</h3>
     </header>
     
 <h4>Purpose</h4>
@@ -47,12 +47,9 @@
 
 <p>Luca Santarella</p>
 
-<h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<h2>License</h2>
 
-<h4>
-<a id="this-software-is-licensed-under-the-gnu-general-public-license" class="anchor" href="#this-software-is-licensed-under-the-gnu-general-public-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>This software is licensed under the GNU General Public License.</h4>
-        </section>
-          <p class="repo-owner"><a href="https://github.com/lucasantarella/Omega"></a> is maintained by <a href="https://github.com/lucasantarella">lucasantarella</a>.</p>
+<h4>This software is licensed under the GNU General Public License.</h4>
+          <p class="repo-owner"><a href="https://github.com/lucasantarella/Omega">Omega</a> is maintained by <a href="https://github.com/lucasantarella">lucasantarella</a>.</p>
 
 </body></html>
