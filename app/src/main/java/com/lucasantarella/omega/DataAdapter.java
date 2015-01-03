@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -16,34 +15,41 @@ import java.util.List;
  * Created by Luca Santarella on 2015-1-2.
  */
 public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> {
-    public static final String TAG = DataAdapter.class.getSimpleName().toString();
-    List<RSSItem> data= Collections.emptyList();
+    public static final String TAG = DataAdapter.class.getSimpleName();
+    List<AdapterItem> data = Collections.emptyList();
     private LayoutInflater inflater;
-    public DataAdapter(Context context, List<RSSItem> data){
-        inflater=LayoutInflater.from(context);
-        this.data=data;
+
+    public DataAdapter(Context context, List<AdapterItem> data) {
+        inflater = LayoutInflater.from(context);
+        this.data = data;
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view=inflater.inflate(R.layout.rss_item_list_row, parent,false);
-        MyViewHolder holder=new MyViewHolder(view);
-        return holder;
+        View view = inflater.inflate(R.layout.rss_item_list_row, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        RSSItem item = data.get(position);
+        AdapterItem item = data.get(position);
         Log.d(TAG, "onBindViewHolder");
-        holder.title.setText(item._title);
+
+        // Shorten title if neccessary
         if (item._title.length() > 100)
-            holder.conTitle.setText(item._title.substring(0, 97) + "...");
+            holder.title.setText(item._title.substring(0, 97) + "...");
         else
-            holder.conTitle.setText(item._title);
-        holder.content.setText(item._content);
-        holder.author.setText(item._author);
-        holder.guid.setText(item._guid);
+            holder.title.setText(item._title);
+
+        // Shorten description if neccessary
+        if (item._description.length() > 100)
+            holder.description.setText(item._description.substring(0, 97) + "...");
+        else
+            holder.description.setText(item._description);
+
         holder.pubDate.setText(item._pubdate);
-        holder.description.setText(item._description);
+        holder.id.setText(item._id);
+
     }
 
     @Override
@@ -51,30 +57,18 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
         return data.size();
     }
 
-    //    @Override
-//    public int getViewTypeCount() {
-//        return 1;
-//    }
-
-    class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView content;
+    class MyViewHolder extends RecyclerView.ViewHolder {
         TextView title;
-        TextView author;
-        TextView guid;
         TextView pubDate;
-        TextView conTitle;
         TextView description;
+        TextView id;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            title = (TextView) itemView.findViewById(R.id.item_full_title);
-            conTitle = (TextView) itemView.findViewById(R.id.title);
-            content = (TextView) itemView.findViewById(R.id.item_content);
-            author = (TextView) itemView.findViewById(R.id.item_author);
-            guid = (TextView) itemView.findViewById(R.id.item_guid);
+            title = (TextView) itemView.findViewById(R.id.item_title);
             pubDate = (TextView) itemView.findViewById(R.id.item_pub_date);
-            conTitle = (TextView) itemView.findViewById(R.id.item_title);
             description = (TextView) itemView.findViewById(R.id.item_description);
+            id = (TextView) itemView.findViewById(R.id.item_feed_id);
         }
     }
 }

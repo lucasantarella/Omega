@@ -26,31 +26,6 @@
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/item_content"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/item_full_title"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/item_author"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/item_guid"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone" />
-        <!-- Article title -->
-
-        <TextView
             android:id="@+id/item_title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -58,8 +33,6 @@
             android:textColor="@android:color/primary_text_light"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-        <!-- published date -->
 
         <TextView
             android:id="@+id/item_pub_date"
@@ -69,8 +42,6 @@
             android:paddingBottom="3dip"
             android:textColor="@android:color/holo_blue_dark"
             android:textSize="14sp" />
-
-        <!-- article description -->
 
         <TextView
             android:id="@+id/item_description"
