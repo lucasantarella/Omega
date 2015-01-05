@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -14,11 +13,16 @@ public class ViewStory extends ActionBarActivity {
     static final String TAG = ViewStory.class.getSimpleName();
     Intent ViewStoryIntent;
     FeedDataSource dataSource;
+//    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(mToolbar);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         setContentView(R.layout.view_story_layout);
         Log.d(TAG, "onCreated");
         Intent intent = getIntent();
@@ -51,18 +55,6 @@ public class ViewStory extends ActionBarActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.story, menu);
-        if (ViewStoryIntent.resolveActivity(getPackageManager()) != null) {
-            menu.findItem(R.id.action_guid).setIntent(ViewStoryIntent);
-            menu.findItem(R.id.action_guid).setVisible(true);
-        } else {
-            menu.findItem(R.id.action_guid).setVisible(false);
-        }
-        return super.onPrepareOptionsMenu(menu);
     }
 
 }

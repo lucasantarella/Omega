@@ -18,8 +18,8 @@
     <string name="activity_title_preferences">Preferences</string>
 
     <string-array name="utilities">
-        <item>NetClassroom</item>
         <item>Omega</item>
+        <item>NetClassroom</item>
         <item>Sports</item>
     </string-array>
     <string-array name="default_screen_values">

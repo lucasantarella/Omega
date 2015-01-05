@@ -15,10 +15,17 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".ViewStory" />
 
-        <service android:name=".GetRSSFeedData" />
+        </activity>
+        <activity android:name=".ViewStory">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <service
+            android:name=".GetRSSFeedData"
+            android:enabled="true" />
 
     </application>
 

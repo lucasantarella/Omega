@@ -5,10 +5,16 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/listItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/navigation_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
         android:layout_gravity="center_vertical"
-        android:text="Dummy Text" />
+        android:alpha="0.87"
+        android:fontFamily="Roboto Medium"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:text="Dummy Text"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
 
 </LinearLayout>

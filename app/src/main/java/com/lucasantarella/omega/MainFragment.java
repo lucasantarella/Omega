@@ -28,7 +28,7 @@ public class MainFragment extends Fragment {
     static FeedDataSource dataSource;
     private RecyclerView recyclerView;
     private IntentFilter newItems;
-    private UpdateReciever reciever;
+    private UpdateReceiver reciever;
 
     public MainFragment() {
         // Required empty public constructor
@@ -70,7 +70,7 @@ public class MainFragment extends Fragment {
         dataSource = new FeedDataSource(getActivity());
         Log.d(TAG, "onCreate");
         newItems = new IntentFilter(GetRSSFeedData.NEW_FEED_ITEMS);
-        reciever = new UpdateReciever();
+        reciever = new UpdateReceiver();
     }
 
     @Override
@@ -116,11 +116,11 @@ public class MainFragment extends Fragment {
         Log.d(TAG, "onCursorSwapped");
     }
 
-    class UpdateReciever extends BroadcastReceiver {
+    class UpdateReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
             MainFragment.this.refreshListView();
-            Log.d(UpdateReciever.class.getSimpleName(), "onReceived");
+            Log.d(UpdateReceiver.class.getSimpleName(), "onReceived");
         }
     }
 }
