@@ -9,18 +9,18 @@
     <string name="action_guid">Open in Browser</string>
     <string name="open_drawer">Open Navigation Drawer</string>
     <string name="close_drawer">Close Navigation Drawer</string>
-    <string name="netcalssroom_fragment_name">Net Classroom</string>
     <string name="omega_fragment_name">Omega</string>
-    <string name="sports_fragment_name">Sports</string>
     <string name="preferences_default_screen">default_screen</string>
     <string name="preferences_default_screen_title">Default Starting Screen</string>
     <string name="preferences_default_screen_summary">Choose the screen you see when you first start the app.</string>
     <string name="activity_title_preferences">Preferences</string>
 
     <string-array name="utilities">
-        <item>Omega</item>
-        <item>NetClassroom</item>
+        <item>Featured</item>
+        <item>OP News</item>
+        <item>World News</item>
         <item>Sports</item>
+        <item>Ask Amanda</item>
     </string-array>
     <string-array name="default_screen_values">
         <item>0</item>
