@@ -45,25 +45,39 @@ ADDED from AndroidManifest.xml:16:17
 	android:name
 		ADDED from AndroidManifest.xml:16:27
 activity#com.lucasantarella.omega.ViewStory
-ADDED from AndroidManifest.xml:19:9
+ADDED from AndroidManifest.xml:20:9
 	android:name
-		ADDED from AndroidManifest.xml:19:19
+		ADDED from AndroidManifest.xml:20:19
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:21:13
+	android:name
+		ADDED from AndroidManifest.xml:22:17
+	android:value
+		ADDED from AndroidManifest.xml:23:17
 service#com.lucasantarella.omega.GetRSSFeedData
-ADDED from AndroidManifest.xml:21:9
+ADDED from AndroidManifest.xml:26:9
+	android:enabled
+		ADDED from AndroidManifest.xml:28:13
 	android:name
-		ADDED from AndroidManifest.xml:21:18
+		ADDED from AndroidManifest.xml:27:13
+service#com.lucasantarella.omega.JSONParser
+ADDED from AndroidManifest.xml:29:9
+	android:enabled
+		ADDED from AndroidManifest.xml:31:13
+	android:name
+		ADDED from AndroidManifest.xml:30:13
 uses-permission#android.permission.INTERNET
-ADDED from AndroidManifest.xml:25:5
+ADDED from AndroidManifest.xml:35:5
 	android:name
-		ADDED from AndroidManifest.xml:25:22
+		ADDED from AndroidManifest.xml:35:22
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:26:5
+ADDED from AndroidManifest.xml:36:5
 	android:name
-		ADDED from AndroidManifest.xml:26:22
+		ADDED from AndroidManifest.xml:36:22
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from AndroidManifest.xml:27:5
+ADDED from AndroidManifest.xml:37:5
 	android:name
-		ADDED from AndroidManifest.xml:27:22
+		ADDED from AndroidManifest.xml:37:22
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5
