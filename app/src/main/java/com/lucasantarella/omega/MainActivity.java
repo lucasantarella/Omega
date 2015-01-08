@@ -8,12 +8,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -25,12 +29,15 @@ public class MainActivity extends ActionBarActivity {
     ArrayAdapter navigationAdapter;
     CharSequence mTitle;
     ActionBarDrawerToggle mDrawerToggle;
-
+    JSONObject jsonObject;
+//    JSONParser jsonParser = new JSONParser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_appbar);
+
+//        new JSONParser().execute();
 
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -103,18 +110,17 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Pass the event to ActionBarDrawerToggle, if it returns
-        // true, then it has handled the app icon touch event
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
+        if (mDrawerToggle.onOptionsItemSelected(item))
             return true;
-        }
 
         switch (item.getItemId()) {
             case R.id.action_refresh:
                 startService(new Intent(this, GetRSSFeedData.class));
                 break;
+            case R.id.action_json:
+                startService(new Intent(this, JSONParser.class));
+                break;
         }
-        // Handle your other action bar items...
 
         return super.onOptionsItemSelected(item);
     }

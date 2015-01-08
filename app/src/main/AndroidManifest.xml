@@ -26,6 +26,9 @@
         <service
             android:name=".GetRSSFeedData"
             android:enabled="true" />
+        <service
+            android:name=".JSONParser"
+            android:enabled="true" />
 
     </application>
 
