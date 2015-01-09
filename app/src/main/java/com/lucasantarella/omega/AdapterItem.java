@@ -13,9 +13,11 @@ public class AdapterItem {
     String _guid;
     String _content;
     String _author;
-
-
+    String _attchment;
     String _id;
+    String _category;
+
+
 
     // constructor
     public AdapterItem() {
@@ -96,6 +98,23 @@ public class AdapterItem {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String get_category() {
+        return _category;
+    }
+
+    public void set_category(String _category) {
+        this._category = _category;
+    }
+
+
+    public String get_attchment() {
+        return _attchment;
+    }
+
+    public void set_attchment(String _attchment) {
+        this._attchment = _attchment;
     }
 
 }

@@ -25,7 +25,7 @@ public class MainFragment extends Fragment {
 
     public static final String TAG = MainFragment.class.getSimpleName();
     public static final String INTENT_EXTRA_ID = "com.lucasantarella.omega.ViewStory.ID";
-    static FeedDataSource dataSource;
+    static JSONDataSource dataSource;
     private RecyclerView recyclerView;
     private IntentFilter newItems;
     private UpdateReceiver reciever;
@@ -67,7 +67,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataSource = new FeedDataSource(getActivity());
+        dataSource = new JSONDataSource(getActivity());
         Log.d(TAG, "onCreate");
         newItems = new IntentFilter(GetRSSFeedData.NEW_FEED_ITEMS);
         reciever = new UpdateReceiver();
