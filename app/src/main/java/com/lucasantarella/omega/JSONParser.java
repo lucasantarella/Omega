@@ -24,6 +24,8 @@ import java.io.InputStreamReader;
  */
 public class JSONParser extends IntentService{
     public static final String TAG = JSONParser.class.getSimpleName();
+    public static final String NEW_FEED_ITEMS = "com.lucasantarella.omega.NEW_FEED_ITEMS";
+    public static final String LOAD_TOGGLE = "com.lucasantarella.omega.LOAD_TOGGLE";
     public static JSONObject JSONResult = null;
     private JSONDataSource jsonDataSource = new JSONDataSource(this);
     public JSONParser() {
@@ -114,6 +116,9 @@ public class JSONParser extends IntentService{
                 Log.d(TAG, "JSONArray was empty! Did not iterate over the array and create list!");
             }
             jsonDataSource.close();
+            sendBroadcast(new Intent(NEW_FEED_ITEMS));
+            sendBroadcast(new Intent(LOAD_TOGGLE));
+
         }
     }
 

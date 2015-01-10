@@ -5,7 +5,7 @@ android {
         Release {
             keyAlias 'release'
             keyPassword 'omega12'
-            storeFile file('D:/Data/Android/Keystores/Omega_Release.jks')
+            storeFile file('C:/Users/Luca/Documents/GitHub/Omega/Omega_Release.jks')
             storePassword 'omega12'
         }
     }

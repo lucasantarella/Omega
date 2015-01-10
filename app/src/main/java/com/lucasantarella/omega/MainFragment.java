@@ -49,14 +49,18 @@ public class MainFragment extends Fragment {
         c.moveToFirst();
         for (int i = 1; i <= c.getCount(); i++) {
             AdapterItem item = new AdapterItem();
+
+            item.set_id(c.getString(0));
             item.set_title(c.getString(1));
             item.set_author(c.getString(2));
             item.set_pubdate(c.getString(3));
-            item.set_description(c.getString(4));
-            item.set_content(c.getString(5));
-            item.set_guid(c.getString(6));
-            item.set_id(c.getString(0));
+            item.set_category(c.getString(4));
+            item.set_description(c.getString(5));
+            item.set_content(c.getString(6));
+            item.set_attchment(c.getString(7));
+            item.set_guid(c.getString(8));
             dataSet.add(item);
+
             c.moveToNext();
         }
         dataSource.close();

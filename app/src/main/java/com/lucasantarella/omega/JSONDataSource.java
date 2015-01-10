@@ -13,7 +13,7 @@ public class JSONDataSource {
     static final String TAG = FeedDataSource.class.getSimpleName();
     public String[] allColumns = {JSONHelper.COLUMN_ID, JSONHelper.COLUMN_TITLE,
             JSONHelper.COLUMN_AUTHOR, JSONHelper.COLUMN_PUBDATE, JSONHelper.COLUMN_CATEGORY, JSONHelper.COLUMN_DESCRIPTION,
-            JSONHelper.COLUMN_CONTENT, JSONHelper.COLUMN_GUID};
+            JSONHelper.COLUMN_CONTENT, JSONHelper.COLUMN_ATTACHMENT, JSONHelper.COLUMN_GUID};
     private SQLiteDatabase database;
     private JSONHelper jsonHelper;
 
