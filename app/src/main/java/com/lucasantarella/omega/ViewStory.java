@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class ViewStory extends ActionBarActivity {
     static final String TAG = ViewStory.class.getSimpleName();
     Intent ViewStoryIntent;
-    FeedDataSource dataSource;
+    JSONDataSource dataSource;
 //    Toolbar mToolbar;
 
     @Override
@@ -29,7 +29,7 @@ public class ViewStory extends ActionBarActivity {
 
         String id = intent.getStringExtra(MainFragment.getIntentExtraId());
 
-        dataSource = new FeedDataSource(this);
+        dataSource = new JSONDataSource(this);
         dataSource.open();
         Cursor c = dataSource.getRow(Integer.parseInt(id));
 
@@ -38,7 +38,7 @@ public class ViewStory extends ActionBarActivity {
         TextView authorTextView = (TextView) findViewById(R.id.story_author);
         c.moveToFirst();
         titleTextView.setText(c.getString(1));
-        contentTextView.setText(c.getString(5));
+        contentTextView.setText(c.getString(6));
         authorTextView.setText(c.getString(2));
 
         Uri webpage = Uri.parse(c.getString(6));
