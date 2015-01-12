@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/item_title"
             android:paddingBottom="3dip"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/accentColor"
             android:textSize="14sp" />
 
         <TextView

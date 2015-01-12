@@ -2,13 +2,17 @@ package com.lucasantarella.omega;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,8 +50,14 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
             holder.description.setText(item._description.substring(0, 97) + "...");
         else
             holder.description.setText(item._description);
-
-        holder.pubDate.setText(item._pubdate);
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        Date d = null;
+        try {
+            d = f.parse(item._pubdate);
+        } catch (ParseException e) {
+            Log.e(TAG, "Failed to parse pubdate!");
+        }
+        holder.pubDate.setText(DateUtils.getRelativeTimeSpanString(d.getTime()));
         holder.id.setText(item._id);
 
     }

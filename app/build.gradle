@@ -15,8 +15,8 @@ android {
         applicationId "com.oraotyprep.omega"
         minSdkVersion 9
         targetSdkVersion 21
-        versionCode 4
-        versionName "Alpha 1.2"
+        versionCode 5
+        versionName "Relase 1.2"
     }
     buildTypes {
         release {

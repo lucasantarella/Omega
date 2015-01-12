@@ -1,7 +1,9 @@
 package com.lucasantarella.omega;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -18,13 +20,21 @@ public class ViewStory extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreated");
 
+        setContentView(R.layout.view_story_layout);
 //        mToolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(mToolbar);
 //        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-        setContentView(R.layout.view_story_layout);
-        Log.d(TAG, "onCreated");
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.primaryColor));
+        int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
+        if (actionBarTitleId > 0) {
+            TextView title = (TextView) findViewById(actionBarTitleId);
+            if (title != null) {
+                title.setTextColor(Color.WHITE);
+            }
+        }
         Intent intent = getIntent();
 
         String id = intent.getStringExtra(MainFragment.getIntentExtraId());
