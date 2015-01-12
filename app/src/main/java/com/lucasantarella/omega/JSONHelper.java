@@ -17,7 +17,7 @@ public class JSONHelper extends SQLiteOpenHelper {
     public static final String COLUMN_CONTENT = "_content";
     public static final String COLUMN_ATTACHMENT = "_attachment";
     public static final String COLUMN_GUID = "_url";
-    private static final String TAG = DBHelper.class.getSimpleName();
+    private static final String TAG = JSONHelper.class.getSimpleName();
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "json.db";
 

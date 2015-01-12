@@ -28,6 +28,16 @@
         <service
             android:name=".JSONParser"
             android:enabled="true" />
+        <receiver
+            android:name=".Reciever"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.oratory.omega.RECIEVER" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

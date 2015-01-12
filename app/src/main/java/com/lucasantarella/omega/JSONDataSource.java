@@ -10,7 +10,7 @@ import android.util.Log;
 import org.jsoup.Jsoup;
 
 public class JSONDataSource {
-    static final String TAG = FeedDataSource.class.getSimpleName();
+    static final String TAG = JSONDataSource.class.getSimpleName();
     public String[] allColumns = {JSONHelper.COLUMN_ID, JSONHelper.COLUMN_TITLE,
             JSONHelper.COLUMN_AUTHOR, JSONHelper.COLUMN_PUBDATE, JSONHelper.COLUMN_CATEGORY, JSONHelper.COLUMN_DESCRIPTION,
             JSONHelper.COLUMN_CONTENT, JSONHelper.COLUMN_ATTACHMENT, JSONHelper.COLUMN_GUID};
