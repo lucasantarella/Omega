@@ -6,7 +6,7 @@
     </header>
     
 <h4>Purpose</h4>
-<p>Bring exposure to the school newspaper through mobile viewing. This app also servers as a learning experience for those members in Oratory Prep's Tech Club.</p>
+<p>Bring exposure to the school newspaper through mobile viewing. This app also serves as a learning experience for those members in Oratory Prep's Tech Club.</p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -40,6 +40,12 @@
 <a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h2>
 
 <p><ul style="text-decroation:none;list-style:none;">
+    <li>
+        v1.2<ul>
+            <li>New UI.</li>
+            <li>Switched to JSON from RSS. This allows for more than 10 items as well as image attachments.</li>
+        </ul>
+    </li>
     <li>
         v1.00<ul>
             <li>Initial release</li>
