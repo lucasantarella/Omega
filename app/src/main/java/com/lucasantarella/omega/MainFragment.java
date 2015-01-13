@@ -7,6 +7,8 @@ import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,7 +49,7 @@ public class MainFragment extends Fragment {
 
         Log.d(TAG, String.format("Cursor count: %s", c.getCount()));
         c.moveToFirst();
-        for (int i = 1; i <= c.getCount(); i++) {
+        for (int i = 1; i < c.getCount(); i++) {
             AdapterItem item = new AdapterItem();
 
             item.set_id(c.getString(0));
@@ -73,7 +75,7 @@ public class MainFragment extends Fragment {
         super.onCreate(savedInstanceState);
         dataSource = new JSONDataSource(getActivity());
         Log.d(TAG, "onCreate");
-        newItems = new IntentFilter(GetRSSFeedData.NEW_FEED_ITEMS);
+        newItems = new IntentFilter(JSONParser.NEW_FEED_ITEMS);
         reciever = new UpdateReceiver();
     }
 
@@ -94,7 +96,7 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_main, container, false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.adapterList);
-        DataAdapter adapter = new DataAdapter(getActivity(), getData());
+        final DataAdapter adapter = new DataAdapter(getActivity(), getData());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         recyclerView.addOnItemTouchListener(new RecyclerItemClick(getActivity(), recyclerView, new RecyclerItemClick.OnItemClickListener() {
@@ -102,9 +104,15 @@ public class MainFragment extends Fragment {
             public void onItemClick(View view, int position) {
                 TextView id = (TextView) view.findViewById(R.id.item_feed_id);
                 Log.d(TAG, "onClicked with ID: " + id.getText().toString());
-                Intent viewStory = new Intent(getActivity(), ViewStory.class);
-                viewStory.putExtra(INTENT_EXTRA_ID, id.getText().toString());
-                startActivity(viewStory);
+                Bundle extras = new Bundle();
+                extras.putInt(MainActivity.ID_EXTRA, Integer.parseInt(id.getText().toString()));
+                ViewStoryFragment viewStoryFragment = new ViewStoryFragment();
+                viewStoryFragment.setArguments(extras);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.content_frame, viewStoryFragment).addToBackStack(getIntentExtraId()).setTransition(FragmentTransaction.TRANSIT_ENTER_MASK).commit();
+//                Intent viewStory = new Intent(getActivity(), ViewStory.class);
+//                viewStory.putExtra(INTENT_EXTRA_ID, id.getText().toString());
+//                startActivity(viewStory);
             }
 
             @Override

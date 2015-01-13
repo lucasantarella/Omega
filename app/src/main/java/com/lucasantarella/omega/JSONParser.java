@@ -3,6 +3,7 @@ package com.lucasantarella.omega;
 import android.app.IntentService;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.text.Html;
 import android.util.Log;
 
 import org.apache.http.HttpEntity;
@@ -13,7 +14,6 @@ import org.apache.http.params.BasicHttpParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.Jsoup;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -22,12 +22,13 @@ import java.io.InputStreamReader;
 /**
  * Created by Luca on 1/7/2015.
  */
-public class JSONParser extends IntentService{
+public class JSONParser extends IntentService {
     public static final String TAG = JSONParser.class.getSimpleName();
     public static final String NEW_FEED_ITEMS = "com.lucasantarella.omega.NEW_FEED_ITEMS";
     public static final String LOAD_TOGGLE = "com.lucasantarella.omega.LOAD_TOGGLE";
     public static JSONObject JSONResult = null;
     private JSONDataSource jsonDataSource = new JSONDataSource(this);
+
     public JSONParser() {
         super("JSONParser");
     }
@@ -39,6 +40,18 @@ public class JSONParser extends IntentService{
         jsonDataSource.inValidateTable();
         jsonDataSource.close();
         new getJSON().execute();
+    }
+
+    public String ParseJSONString(String input) {
+        String output;
+
+        output = input;
+        output.replaceAll("\\\\", "\\\\\\\\\\");
+//        output.replaceAll("<p>", "\n");
+//        output.replaceAll("</p>", "");
+//        output.replaceAll("<br />", "\n");
+        output = Html.fromHtml(output).toString();
+        return output;
     }
 
     public class getJSON extends AsyncTask<Void, Void, JSONObject> {
@@ -64,11 +77,9 @@ public class JSONParser extends IntentService{
                     sb.append(line + "\n");
                 }
                 JSONResult = new JSONObject(sb.toString());
-            } catch (Exception e){
+            } catch (Exception e) {
                 Log.e(JSONParser.class.getSimpleName(), "onCrashed\n", e);
-            }
-
-            finally{
+            } finally {
                 try {
                     if (inputStream != null) inputStream.close();
                 } catch (Exception e) {
@@ -92,27 +103,28 @@ public class JSONParser extends IntentService{
                 Log.e(TAG, "Failed to parse array from JSONObject or parse count!\n", e);
             }
             jsonDataSource.open();
-            if(jsonArray!=null && count != 0){
-            for (int i = 0; i <= count - 1; i++) {
+            if (jsonArray != null && count != 0) {
+                for (int i = 0; i < count; i++) {
                     try {
                         currentObject = jsonArray.getJSONObject(i);
                         jsonDataSource.insertIntoDatabase(
-                                Jsoup.parse(currentObject.getString("title").replaceAll("////", "")).toString(),
+                                ParseJSONString((currentObject.getString("title"))),
                                 currentObject.getJSONObject("author").getString("name"),
                                 currentObject.getString("date"),
                                 currentObject.getJSONArray("categories").getJSONObject(0).getString("slug"),
-                                Jsoup.parse(currentObject.getString("content").substring(0, 47) + "...".replaceAll("////", "")).toString(),
-                                Jsoup.parse(currentObject.getString("content").toString().replaceAll("////", "")).toString(),
-                                currentObject.getJSONArray("attachments").getJSONObject(0).getString("url").replaceAll("////", ""),
-                                currentObject.getString("url").replaceAll("////", "")
+                                "empty",
+//                                Jsoup.parse(currentObject.getString("content").substring(0, 47) + "...".replaceAll("\\\\", "").replaceAll("<br />", "\n")).toString(),
+                                ParseJSONString(currentObject.getString("content").toString()),
+                                ParseJSONString(currentObject.getJSONArray("attachments").getJSONObject(0).getString("url")),
+                                ParseJSONString(currentObject.getString("url"))
                         );
-                        Log.d(TAG, "Got title: " + currentObject.getString("content").replaceAll("////", ""));
-                        Log.d(TAG, String.format("Inserted JSONObject number %s out of %s", i+1, count));
+                        Log.d(TAG, "Got content: " + ParseJSONString(currentObject.getString("content")));
+                        Log.d(TAG, String.format("Inserted JSONObject number %s out of %s", i, count));
                     } catch (JSONException e) {
                         Log.e(TAG, "Failed reading from Objects list!", e);
                     }
                 }
-            }else{
+            } else {
                 Log.d(TAG, "JSONArray was empty! Did not iterate over the array and create list!");
             }
             jsonDataSource.close();

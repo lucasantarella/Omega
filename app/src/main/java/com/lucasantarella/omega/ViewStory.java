@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ public class ViewStory extends ActionBarActivity {
     static final String TAG = ViewStory.class.getSimpleName();
     Intent ViewStoryIntent;
     JSONDataSource dataSource;
-//    Toolbar mToolbar;
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +24,10 @@ public class ViewStory extends ActionBarActivity {
         Log.d(TAG, "onCreated");
 
         setContentView(R.layout.view_story_layout);
-//        mToolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         getSupportActionBar().setBackgroundDrawable(getResources().getDrawable(R.color.primaryColor));
         int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
         if (actionBarTitleId > 0) {

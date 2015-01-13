@@ -2,6 +2,7 @@ package com.lucasantarella.omega;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
@@ -14,12 +15,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import org.json.JSONObject;
 
 
 public class MainActivity extends ActionBarActivity {
     public static final String TAG = MainActivity.class.getSimpleName();
+    public static final String ID_EXTRA = "org.oratory.omega.VIEW_STORY_FRAGMENT_ID";
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
     String[] drawerItems;
@@ -156,6 +159,8 @@ public class MainActivity extends ActionBarActivity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
+            TextView item = (TextView) view.findViewById(R.id.navigation_list_item);
+            item.setTypeface(null, Typeface.BOLD);
             selectItem(position);
         }
     }

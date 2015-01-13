@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    android:clickable="true"
-    card_view:cardCornerRadius="2dip">
+    android:layout_height="70dp"
+    android:layout_marginBottom="4dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
+    android:clickable="true">
 
     <RelativeLayout
 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="4dip"
-        android:paddingLeft="8dip"
-        android:paddingRight="8dip"
-        android:paddingTop="4dip">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="Georgia"
+        android:nestedScrollingEnabled="false"
+        android:orientation="vertical">
 
         <!-- Hidden Elements -->
 
         <TextView
             android:id="@+id/item_feed_id"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
@@ -29,28 +29,36 @@
             android:id="@+id/item_title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:paddingBottom="1dip"
+            android:text="Title"
             android:textColor="@android:color/primary_text_light"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:typeface="normal" />
 
         <TextView
             android:id="@+id/item_pub_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/item_title"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/item_feed_id"
+            android:layout_toRightOf="@+id/item_feed_id"
+            android:padding="8dp"
             android:paddingBottom="3dip"
+            android:text="4 days ago"
             android:textColor="@color/accentColor"
             android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/item_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/item_pub_date"
-            android:paddingBottom="6dip"
-            android:textColor="@android:color/secondary_text_dark"
-            android:textSize="15sp" />
+        <ImageView
+            android:id="@+id/attachment_image_view"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="0dp" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

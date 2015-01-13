@@ -12,11 +12,11 @@ android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
     defaultConfig {
-        applicationId "com.oraotyprep.omega"
+        applicationId "org.oratoryprep.omega"
         minSdkVersion 9
         targetSdkVersion 21
-        versionCode 5
-        versionName "Relase 1.2"
+        versionCode 6
+        versionName "Release 1.2"
     }
     buildTypes {
         release {
